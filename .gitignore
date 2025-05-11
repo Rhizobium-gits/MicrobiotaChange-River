@@ -1,0 +1,31 @@
+# R関連の一時ファイル
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+*.Rproj
+
+# Mac OS関連
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Windows関連
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux関連
+*~
+.directory
+.Trash-*
+
+# 大きなCSVファイル（必要に応じてコメントアウト）
+# *.csv
+
+# その他
+.httr-oauth
+*.html
+*.log
