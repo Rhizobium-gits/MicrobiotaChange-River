@@ -1,3 +1,4 @@
+# ここでは仮の細菌叢データを取得することでテンプレートを作成している
 # 微生物属と月の定義
 set.seed(42)
 genera <- c("Bacteroides", "Lactobacillus", "Akkermansia", "Prevotella", "Clostridium")
