@@ -1,3 +1,9 @@
+# CSV読み込み
+abund_df <- read_csv("microbiome_abundance.csv")
+
+# 可視化用データ整形
+abund_df$Month <- factor(abund_df$Month, levels = unique(abund_df$Month))
+
 # プロット（ggalluvialによる川の流れ風）
 ggplot(abund_df,
        aes(x = Month, stratum = Genus, alluvium = Genus,
