@@ -1,0 +1,22 @@
+# データ読み込み
+df <- read_csv("microbiome_abundance_expression.csv")
+df$Month <- factor(df$Month, levels = unique(df$Month))
+
+# 川の流れ図（Impactに基づく太さ）
+ggplot(df,
+       aes(x = Month, stratum = Genus, alluvium = Genus,
+           y = Impact, fill = Genus, label = Genus)) +
+  geom_stratum(width = 0.6, color = "black") +
+  
+  geom_flow(stat = "alluvium", lode.guidance = "frontback",
+            alpha = 0.6,
+            width = 0.2) +
+  
+  theme_minimal() +
+  ylab("Functional Impact (Abundance × Expression)") +
+  xlab("Month") +
+  ggtitle("Microbial Transitions Over Time Adjusted by Expression") +
+  theme(
+    legend.position = "right",
+    plot.title = element_text(hjust = 0.5)
+  )
