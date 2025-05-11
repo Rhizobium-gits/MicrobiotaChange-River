@@ -1,0 +1,19 @@
+# 存在量（相対存在率）
+abund_list <- lapply(1:10, function(i) {
+  rel_abund <- runif(length(genera), 0, 1)
+  rel_abund <- rel_abund / sum(rel_abund)
+  
+  # 架空の発現量（1〜10のスケール）
+  expression <- runif(length(genera), 1, 10)
+  
+  tibble(
+    Month = months[i],
+    Genus = genera,
+    Abundance = rel_abund,
+    Expression = expression,
+    Impact = rel_abund * expression  # 存在量 × 活性度
+  )
+})
+
+df <- bind_rows(abund_list)
+write_csv(df, "microbiome_abundance_expression.csv")
