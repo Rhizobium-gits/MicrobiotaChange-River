@@ -1,0 +1,12 @@
+# プロット（ggalluvialによる川の流れ風）
+ggplot(abund_df,
+       aes(x = Month, stratum = Genus, alluvium = Genus,
+           y = Abundance, fill = Genus, label = Genus)) +
+  geom_flow(stat = "alluvium", lode.guidance = "frontback", color = "darkgray") +
+  geom_stratum(width = 0.3, color = "black") +
+  theme_minimal() +
+  ylab("Relative Abundance") +
+  xlab("Month") +
+  ggtitle("Microbial Composition Transitions Over 10 Months") +
+  theme(legend.position = "right",
+        plot.title = element_text(hjust = 0.5))
