@@ -18,10 +18,3 @@ abund_list <- lapply(1:10, function(i) {
 # データ結合・保存
 abund_df <- bind_rows(abund_list)
 write_csv(abund_df, "microbiome_abundance.csv")
-library(ggalluvial)
-
-# CSV読み込み
-abund_df <- read_csv("microbiome_abundance.csv")
-
-# 可視化用データ整形
-abund_df$Month <- factor(abund_df$Month, levels = unique(abund_df$Month))
